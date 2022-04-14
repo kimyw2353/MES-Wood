@@ -1,0 +1,33 @@
+.panel-login-bg {
+	overflow: hidden;
+	/*background: url(../images/login-bg.jpg);*/
+	background-position: center center;
+	background-size: cover;
+	background-color: #72afd2;
+}
+
+.panel-login {
+	width: 330px;
+	margin: 25vh auto;
+	padding-bottom: 10px;
+}
+
+.panel-login-top {
+	height: 78px;
+	line-height: 78px;
+	text-align: center;
+	/*background-image: url(../images/image.jpg);*/
+}
+
+.panel-login-top > h1 {
+	color: #fff;
+	font-size: 26px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.panel-login-middle {
+	padding: 10px;
+	background: #fff;
+	border-radius: 10px;
+}

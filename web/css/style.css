@@ -1,0 +1,149 @@
+@charset "utf-8";
+@import url(./reset.css);
+@import url(./sidebar.css);
+@import url(./font-awesome.css);
+@import url(./form.css);
+@import url(./button.css);
+@import url(./alert.css);
+@import url(./table.css);
+@import url(./common.css);
+@import url(https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700&amp;subset=korean);
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	font-family: 'Nanum Gothic', sans-serif;
+	color: #444;
+	font-size: 12px;
+	margin: 0;
+	padding: 0;
+	line-height: 1.6em;
+}
+
+.wrapper {
+	position: relative;
+	top: 0;
+	height: 100vh;
+}
+
+.container {
+	overflow: auto;
+	position: relative;
+	float: right;
+	height: 100vh;
+	width: calc(100% - 230px);
+	background: #f7f7f8;
+}
+
+header {
+	height: 50px;
+	border-bottom: 1px solid #e5e5e5;
+	background: #fff;
+	width: 100%;
+}
+
+header .top_menu {
+	padding: 10px;
+	width: 100%;
+}
+
+header .top_menu:after {
+	content: "";
+	clear: both;
+	display: block;
+	width: 100%;
+}
+
+#content {
+	/*width: 970px;*/
+	margin: 10px;
+	padding: 0;
+  min-height: calc(100% - 121px);
+}
+
+.content-header {
+	position: relative;
+	padding: 0 5px;
+	margin-bottom: 15px;
+}
+
+.content-header .title {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.content-header .sub_title {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.content-header .breadcrumb {
+	position: absolute;
+	top: 10px;
+	right: 0px;
+}
+
+.content-header .breadcrumb li {
+	display: inline;
+	color: #b3b3b3;
+	padding: 0 10px 0 10px;
+}
+
+.content-header .breadcrumb li:after {
+	font: normal normal normal 14px/1 FontAwesome;
+	position: absolute;
+	content: "\f105";
+	top: 3px;
+	padding-left: 10px;
+}
+
+.content-header .breadcrumb li:last-child:after {
+	content: "";
+}
+
+.box {
+	padding: 10px 10px;
+}
+
+.box-bg {
+	background: #fff;
+	border: 1px solid #dfdfdf;
+}
+
+.tab {
+	margin-bottom: 1px;
+}
+
+.tab > ul > li > a {
+	margin-right: 1px;
+	padding: 10px 15px;
+	border: 1px solid #dfdfdf;
+	background: #fff;
+	float: left;
+	line-height: 1.5em;
+}
+
+.tab > ul > li.active > a, .tab > ul > li:focus > a, .tab > ul > li:hover > a {
+	font-weight: bold;
+	background: #2c3b41;
+	color: #fff;
+}
+
+.tab:after {
+	content: "";
+	clear: both;
+	display: block;
+}
+
+footer {
+	height: 50px;
+	border-top: 1px solid #e5e5e5;
+	background: #fff;
+	padding: 0 10px;
+}
+
+footer .copyright {
+	line-height: 50px;
+	color: #b3b3b3;
+}

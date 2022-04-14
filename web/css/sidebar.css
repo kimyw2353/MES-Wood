@@ -1,0 +1,109 @@
+.sidebar {
+	overflow: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 230px;
+	height: 100vh;
+	background: #222d32;
+}
+
+/* brand */
+.sidebar > .brand {
+	background: #367fa9;
+	border-bottom: 1px solid #47748b;
+	height: 50px;
+	/*line-height: 50px;*/
+	text-align: center;
+}
+
+.sidebar > .brand > a {
+	color: #fff;
+	font-size: 18px;
+	line-height: 50px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+/* user-info */
+.sidebar .user-info {
+	padding: 15px 20px;
+	display: flex;
+}
+
+.sidebar .user-info > .user-image {
+	margin-right: 15px;
+	font-size: 40px;
+}
+
+.sidebar .user-info > .user-image > i {
+	color: #8aa4af;
+}
+
+.sidebar .user-info > .user-detail {
+	/*padding: 5px 0;*/
+}
+
+.sidebar .user-info > .user-detail > p {
+	color: #8aa4af;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+/* menu */
+nav ul li.header {
+	padding: 10px 20px;
+	font-weight: bold;
+	color: #4b646f;
+	background: #1a2226;
+}
+
+nav ul li a {
+	padding: 10px 20px;
+	font-size: 12px;
+	font-weight: bold;
+	display: block;
+	color: #8aa4af;
+}
+
+nav > ul > li > a[expanded="true"]::before, nav > ul > li > a[expanded="false"]::before{
+	font: normal normal normal 14px/1 FontAwesome;
+	content: "\f078";
+	display: block;
+	position: absolute;
+	right: 20px;
+	font-size: 12px;
+}
+
+nav > ul > li > a[expanded="true"]::before{
+	content: "\f077";
+}
+
+nav > ul > li > a:hover, nav > ul > li.active > a {
+	color: #fff;
+	background: #1e282c;
+}
+
+nav ul li a i {
+	margin-right: 10px;
+	color: #8aa4af;
+}
+
+nav > ul > li > a:hover > i, nav > ul > li.active > a > i {
+	color: #fff !important;
+}
+
+nav ul ul a {
+	font-size: 12px;
+	padding: 5px 0 7px 35px;
+	background: #2c3b41;
+}
+
+nav ul ul a:hover {
+	color: #fff;
+}
+
+nav ul ul li.active > a {
+	color: #fff;
+}
