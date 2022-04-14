@@ -12,7 +12,7 @@ public class MaterialsOrdersDao extends DBManager {
 
     private PreparedStatement ps = null;
     private ResultSet rs = null;
-    private Connection conn = null;;
+    private Connection conn = null;
 
 
     public ArrayList<MaterialsOrders> findAllMaterialsOrders(){

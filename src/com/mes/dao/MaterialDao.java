@@ -83,7 +83,7 @@ public class MaterialDao extends DBManager {
             ps.setString(5, materials.getWidth());
             ps.setString(6, materials.getEtc());
             
-            return (ps.executeUpdate() == 1) ? true : false;
+            return ps.executeUpdate() == 1;
         }catch (Exception e){
             e.printStackTrace();
             System.out.println("materialDao createMaterials 오류");
@@ -145,7 +145,7 @@ public class MaterialDao extends DBManager {
 
             ps.setInt(7, materials.getId());
 
-            return (ps.executeUpdate() >=1) ? true : false;
+            return ps.executeUpdate() >= 1;
         }catch (Exception e){
             e.printStackTrace();
             System.out.println("materialDao updateMaterials 오류");
@@ -166,7 +166,7 @@ public class MaterialDao extends DBManager {
 
             ps.setInt(1, materialId);
 
-            return ps.executeUpdate() >= 1 ? true : false;
+            return ps.executeUpdate() >= 1;
         }catch (Exception e){
             e.printStackTrace();
             System.out.println("materialDao deleteMaterials 오류");

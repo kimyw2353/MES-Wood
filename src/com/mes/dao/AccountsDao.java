@@ -84,7 +84,7 @@ public class AccountsDao extends DBManager {
             ps.setString(10, accounts.getFax());
             ps.setString(11, accounts.getEtc());
 
-            return (ps.executeUpdate() == 1) ? true : false;
+            return ps.executeUpdate() == 1;
 
         }catch (Exception e){
             e.printStackTrace();
@@ -149,7 +149,7 @@ public class AccountsDao extends DBManager {
             ps.setString(11, accounts.getEtc());
             ps.setInt(12, accounts.getId());
 
-            return (ps.executeUpdate() == 1) ? true : false;
+            return ps.executeUpdate() == 1;
 
         }catch (Exception e){
             e.printStackTrace();
@@ -169,7 +169,7 @@ public class AccountsDao extends DBManager {
             ps.setInt(1, accountId);
             ps.executeUpdate();
 
-            return (ps.executeUpdate() >= 0) ? true : false;
+            return ps.executeUpdate() >= 0;
         }catch (Exception e){
             e.printStackTrace();
             return false;
@@ -188,7 +188,7 @@ public class AccountsDao extends DBManager {
 
             ps.setInt(1, accountId);
 
-            return (ps.executeQuery().next()) ? true : false;
+            return ps.executeQuery().next();
         }catch (Exception e){
             e.printStackTrace();
             return false;
@@ -207,7 +207,7 @@ public class AccountsDao extends DBManager {
 
             ps.setInt(1, accountId);
 
-            return (ps.executeUpdate() >= 1) ? true : false;
+            return ps.executeUpdate() >= 1;
         }catch (Exception e){
             e.printStackTrace();
             return false;

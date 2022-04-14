@@ -55,7 +55,7 @@ public class AccountCreateController extends HttpServlet {
         accounts.setFax(fax);
         accounts.setEtc(etc);
 
-        System.out.println(accounts.toString());
+        System.out.println(accounts);
 
         //거래처 생성 실행
         if (accountsDao.createAccounts(accounts)) {

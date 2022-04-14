@@ -26,7 +26,7 @@ public class DBManager {
         PreparedStatement ps = null;
         try {
             ps = conn.prepareStatement("SELECT * FROM " + tableName + " where id = " + id);
-            return (ps.executeQuery().next()) ? true : false;
+            return ps.executeQuery().next();
         } catch (SQLException e) {
             e.printStackTrace();
             return false;

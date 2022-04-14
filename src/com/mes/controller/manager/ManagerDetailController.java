@@ -58,7 +58,7 @@ public class ManagerDetailController extends HttpServlet {
         managers.setPosition(position);
         managers.setDepartment(department);
 
-        System.out.println("매니저 정보 변경 : " + managers.toString());
+        System.out.println("매니저 정보 변경 : " + managers);
 
         if (managersDao.updateManagers(managers)){
             resp.sendRedirect("/managers/Detail.do?id=" + managers.getId());

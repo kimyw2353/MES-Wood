@@ -135,7 +135,7 @@
         })
 
         $("#account_delete").on("click", function (e) {
-            var checkValurArr = new Array();
+            var checkValurArr = [];
             var $checkbox = $('input:checkbox[name="idx[]"]:checked');
 
             for (var i=0; i<$checkbox.length; i++){

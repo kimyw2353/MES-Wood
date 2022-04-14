@@ -17,6 +17,6 @@ public class DateRole implements Role{
         Matcher matcher = pattern.matcher(val);
         Matcher matcher2 = pattern.matcher(val2);
 
-        return matcher.find() && matcher2.find() ? true : false;
+        return matcher.find() && matcher2.find();
     }
 }

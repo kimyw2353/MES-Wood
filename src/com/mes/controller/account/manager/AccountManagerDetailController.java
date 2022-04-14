@@ -49,7 +49,7 @@ public class AccountManagerDetailController extends HttpServlet {
         managers.setPosition(position);
         managers.setDepartment(department);
 
-        System.out.println(managers.toString());
+        System.out.println(managers);
 
         managersDao.updateAccountsManagers(managers);
 

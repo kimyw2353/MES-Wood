@@ -67,7 +67,7 @@ public class AccountDetailController extends HttpServlet {
         accounts.setFax(fax);
         accounts.setEtc(etc);
 
-        System.out.println(accounts.toString());
+        System.out.println(accounts);
 
         if(accountsDao.updateAccounts(accounts)){
             response.sendRedirect("/accounts/Detail.do?id=" + accounts.getId());

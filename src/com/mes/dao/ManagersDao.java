@@ -31,7 +31,7 @@ public class ManagersDao extends DBManager {
             ps.setString(5, managers.getPosition());
             ps.setString(6, managers.getDepartment());
 
-            return (ps.executeUpdate() == 1)  ? true : false;
+            return ps.executeUpdate() == 1;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -53,7 +53,7 @@ public class ManagersDao extends DBManager {
 
             ps.setInt(1, accountId);
 
-            rs = ps.executeQuery();;
+            rs = ps.executeQuery();
 
             while (rs.next()){
                 Managers managers = new Managers();
@@ -125,7 +125,7 @@ public class ManagersDao extends DBManager {
             ps.setString(5, managers.getDepartment());
             ps.setInt(6, managers.getId());
 
-            return (ps.executeUpdate() == 1) ? true : false;
+            return ps.executeUpdate() == 1;
         }catch (Exception e){
             e.printStackTrace();
             System.out.println("거래처 관리 매니저 수정 불가");
@@ -146,7 +146,7 @@ public class ManagersDao extends DBManager {
             ps.setInt(1, Integer.parseInt(account_id));
             ps.setInt(2, manager_id);
 
-            return (ps.executeUpdate() >= 1) ? true : false;
+            return ps.executeUpdate() >= 1;
         }catch (Exception e){
             e.printStackTrace();
             System.out.println("거래처 관리 매니저 삭제 불가");
@@ -218,7 +218,7 @@ public class ManagersDao extends DBManager {
             ps.setString(5, managers.getPosition());
             ps.setString(6, managers.getDepartment());
 
-            return ps.executeUpdate() >= 1 ? true : false;
+            return ps.executeUpdate() >= 1;
         }catch (Exception e){
             e.printStackTrace();
             return false;
@@ -275,7 +275,7 @@ public class ManagersDao extends DBManager {
             ps.setString(6, managers.getDepartment());
             ps.setInt(7, managers.getId());
 
-            return (ps.executeUpdate() >= 1) ? true : false;
+            return ps.executeUpdate() >= 1;
         }catch (Exception e){
             e.printStackTrace();
             return false;
@@ -295,7 +295,7 @@ public class ManagersDao extends DBManager {
 
             ps.setInt(1, managerId);
 
-            return ps.executeUpdate() >= 1 ? true : false;
+            return ps.executeUpdate() >= 1;
         }catch (Exception e){
             e.printStackTrace();
             return false;

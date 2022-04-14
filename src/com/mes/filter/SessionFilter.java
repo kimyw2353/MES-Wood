@@ -12,7 +12,7 @@ import java.util.List;
 @WebFilter(filterName = "sessionFilter")
 public class SessionFilter implements Filter {
 
-    private List<String> whiteList;
+    private final List<String> whiteList;
 
     //세션 제외 경로 추가
     public SessionFilter(){

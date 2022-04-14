@@ -141,7 +141,7 @@
         })
 
         $('#manager_delete').on('click', function (e) {
-            var checkValueArr = new Array();
+            var checkValueArr = [];
             var $checkbox = $('input:checkbox[name="idx[]"]:checked');
 
             for (var i = 0; i < $checkbox.length; i++){
