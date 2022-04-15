@@ -28,7 +28,7 @@ public class UsersDao extends DBManager {
             e.printStackTrace();
             return 2;
         }finally {
-            closeConnectionAll(conn, ps, rs);
+            closeConnectionAll(rs, ps, conn);
         }
     }
 
@@ -56,7 +56,7 @@ public class UsersDao extends DBManager {
             e.printStackTrace();
             return null;
         }finally {
-            closeConnectionAll(conn, ps, rs);
+            closeConnectionAll(rs, ps, conn);
         }
     }
 
@@ -78,7 +78,7 @@ public class UsersDao extends DBManager {
             e.printStackTrace();
             return false;
         }finally {
-            closeConnectionAll(conn, ps, rs);
+            closeConnectionAll(ps, conn);
         }
 
     }

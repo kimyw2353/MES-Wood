@@ -3,21 +3,23 @@ package com.mes.manager;
 import java.sql.*;
 
 public class DBManager {
-
-    public Connection getConnection() {
-        try {
-            String url = "jdbc:mysql://175.210.112.200:3006/mes_wood?serverTimezone=UTC";
-            String id = "bizplus";
-            String pw = "bizplus";
-            /*String url = "jdbc:mysql://localhost:3306/mes_test?serverTimezone=UTC";
-            String id = "root";
-            String pw = "root";*/
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            return DriverManager.getConnection(url, id, pw);
-        } catch (Exception e) {
+    public static Connection getConnection(){
+        try{
+            String dbURL = "jdbc:mysql://localhost:3306/board";
+            String dbID = "root";
+            String dbPW = "root";
+            Class.forName("com.mysql.jdbc.Driver");
+            return DriverManager.getConnection(dbURL,dbID,dbPW);
+        }catch (Exception e){
             e.printStackTrace();
         }
         return null;
+    }
+
+    public void close(ResultSet rs, PreparedStatement ps , Connection conn){
+        if( ps != null) try{ rs.close();} catch (Exception e){};
+        if( ps != null) try{ ps.close();} catch (Exception e){};
+        if( ps != null) try{ conn.close();} catch (Exception e){};
     }
 
     //개별 확인
@@ -31,7 +33,7 @@ public class DBManager {
             e.printStackTrace();
             return false;
         } finally {
-            this.closeConnectionAll(conn, ps);
+            this.closeConnectionAll(ps, conn);
         }
     }
 
@@ -49,24 +51,24 @@ public class DBManager {
             e.printStackTrace();
             return 0;
         } finally {
-            this.closeConnectionAll(conn, ps, rs);
+            this.closeConnectionAll(rs, ps, conn);
         }
     }
 
-    public void closeConnectionAll(Connection conn, PreparedStatement ps, ResultSet rs) {
+    public void closeConnectionAll(ResultSet rs, PreparedStatement ps, Connection conn) {
         try {
-            if (conn != null) conn.close();
-            if (ps != null) ps.close();
             if (rs != null) rs.close();
+            if (ps != null) ps.close();
+            if (conn != null) conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public void closeConnectionAll(Connection conn, PreparedStatement ps) {
+    public void closeConnectionAll(PreparedStatement ps, Connection conn) {
         try {
-            if (conn != null) conn.close();
             if (ps != null) ps.close();
+            if (conn != null) conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
