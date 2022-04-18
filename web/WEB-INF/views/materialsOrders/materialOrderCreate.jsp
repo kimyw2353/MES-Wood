@@ -52,12 +52,12 @@
                         <tr>
                             <th>발주 금액</th>
                             <td>
-                                <input type="text" name="">
+                                <input type="text" name="m_price">
                             </td>
                         </tr>
                         <tr>
                             <th>발주일</th>
-                            <td><input type="text" name = "m_create"></td>
+                            <td><input type="text" name="m_create"></td>
                         </tr>
                         <tr>
                             <th>비고</th>

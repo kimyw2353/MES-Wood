@@ -29,7 +29,7 @@ public class AccountsDao extends DBManager {
             e.printStackTrace();
             return 0;
         }finally {
-            closeConnectionAll(conn, ps, rs);
+            closeConnectionAll(rs, ps, conn);
         }
     }
 
@@ -58,7 +58,7 @@ public class AccountsDao extends DBManager {
         }catch (Exception e){
             e.printStackTrace();
         }finally {
-            closeConnectionAll(conn, ps, rs);
+            closeConnectionAll(rs, ps, conn);
         }
         return list;
     }
@@ -90,7 +90,7 @@ public class AccountsDao extends DBManager {
             e.printStackTrace();
             return false;
         }finally {
-            closeConnectionAll(conn, ps, rs);
+            closeConnectionAll(ps, conn);
         }
     }
 
