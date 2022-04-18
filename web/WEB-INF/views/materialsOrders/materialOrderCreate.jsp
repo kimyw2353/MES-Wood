@@ -41,25 +41,27 @@
                         <tr>
                             <th>발주명</th>
                             <td>
-                                <input type="text" name="m_name" id="m_name" class="form-control xs">
+                                <input type="text" name="m_name" id="m_name" class="form-control xs" required>
                             </td>
                             <th>거래처명</th>
                             <td>
-                                <input type="text" name="account_name" id="account_name" class="form-control xs" onclick="ListAccountPopup()" readonly>
+                                <input type="text" name="account_name" id="account_name" class="form-control xs" onclick="ListAccountPopup()" readonly required>
                                 <input type="hidden" name="account_id" id="account_id" value="">
                             </td>
                         </tr>
                         <tr>
                             <th>발주 금액</th>
                             <td>
-                                <input type="text" name="">
+                                <input type="text" name="m_price">
+                            </td>
+                            <th>발주 수량</th>
+                            <td>
+                                <input type="text" name="m_number">
                             </td>
                         </tr>
                         <tr>
-                            <th>폭</th>
-                            <td><input type="text" name="m_height" id="m_height" class="form-control xs"></td>
-                            <th>너비</th>
-                            <td><input type="text" name="m_width" id="m_width" class="form-control xs"></td>
+                            <th>발주일</th>
+                            <td><input type="text" name="m_date" id="m_date" class="form-control xs"></td>
                         </tr>
                         <tr>
                             <th>비고</th>
