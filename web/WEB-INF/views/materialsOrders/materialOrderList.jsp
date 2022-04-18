@@ -24,24 +24,27 @@
             <form name="search_form" method="GET">
                 <table class="table-input">
                     <colgroup>
-                        <col width="15%">
-                        <col width="35%">
-                        <col width="15%">
-                        <col width="*">
+                        <col width="10%">
+                        <col width="20%">
+                        <col width="10%">
+                        <col width="20%">
+                        <col width="10%">
+                        <col width="10%">
                     </colgroup>
                     <tbody>
                     <tr>
-                        <th>구분</th>
+                        <th>발주처</th>
                         <td>
-                            <select name="account_type" class="form-control">
-                                <option value="">회원</option>
-                                <option value="">회원</option>
-                                <option value="">회원</option>
-                                <option value="">회원</option>
-                            </select>
+                            <input type="text" name="" class="form-control">
                         </td>
-                        <th>자재명</th>
-                        <td><input type="text" name="account_name" class="form-control"></td>
+                        <th>거래처명</th>
+                        <td>
+                            <input type="text" name="" class="form-control">
+                        </td>
+                        <th>발주일</th>
+                        <td>
+                            <input type="text" name="" class="form-control">
+                        </td>
                     </tr>
                     </tbody>
                 </table>
@@ -55,12 +58,24 @@
 
             <div class="clearfix mg-top-10 mg-bottom-10">
                 <div class="f-left ft-bold mg-top-5">
-                    Total : ${materialsOrderCount}건
+                    Total :
+                    <c:if test="${materialsOrderCount eq null}">
+                        0건
+                    </c:if>
+                    <c:if test="${materialsOrderCount > 0}">
+                    ${materialsOrderCount}건
+                    </c:if>
                 </div>
                 <div class="f-right text-right">
-                    <button type="button" id="manager_input" class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i> 등록</button>
-                    <button type="button" id="account_excel_download" class="btn btn-success"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Excel <button>
-                    <button type="button" id="manager_delete" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> 삭제 </button>
+                    <button type="button" id="manager_input" class="btn btn-primary">
+                        <i class="fa fa-pencil" aria-hidden="true"> 등록</i>
+                    </button>
+                    <button type="button" id="manager_delete" class="btn btn-danger">
+                        <i class="fa fa-trash" aria-hidden="true"> 삭제</i>
+                    </button>
+                    <button type="button" id="account_excel_download" class="btn btn-success">
+                        <i class="fa fa-file-excel-o" aria-hidden="true"> Excel</i>
+                    </button>
                 </div>
             </div>
 

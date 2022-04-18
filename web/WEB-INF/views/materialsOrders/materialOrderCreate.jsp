@@ -33,35 +33,45 @@
                         </colgroup>
                         <tbody>
                         <tr>
-                            <th>발주번호</th>
-                            <td>
-                                <input type="text" name="m_code" id="m_code" class="form-control xs">
+                            <th>발주코드</th>
+                            <td colspan="3">
+                                <input type="text" name="m_code" id="m_code" class="form-control xs" readonly>
                             </td>
                         </tr>
                         <tr>
                             <th>발주명</th>
-                            <td>
-                                <input type="text" name="m_name" id="m_name" class="form-control xs">
+                            <td colspan="3">
+                                <input type="text" name="m_name" id="m_name" class="form-control xs" required>
                             </td>
+                        </tr>
+                        <tr>
                             <th>거래처명</th>
-                            <td>
-                                <input type="text" name="account_name" id="account_name" class="form-control xs" onclick="ListAccountPopup()" readonly>
+                            <td colspan="3">
+                                <input type="text" name="account_name" id="account_name" class="form-control xs" onclick="ListAccountPopup()" readonly required>
                                 <input type="hidden" name="account_id" id="account_id" value="">
                             </td>
                         </tr>
                         <tr>
                             <th>발주 금액</th>
                             <td>
-                                <input type="text" name="m_price">
+                                <input type="text" name="m_price" class="form-control xs" readonly>
+                            </td>
+                            <th>발주 수량</th>
+                            <td>
+                                <input type="text" name="m_number" class="form-control xs" readonly>
                             </td>
                         </tr>
                         <tr>
                             <th>발주일</th>
-                            <td><input type="text" name="m_create"></td>
+                            <td colspan="3">
+                                <input type="text" name="m_create" class="form-control xs">
+                            </td>
                         </tr>
                         <tr>
                             <th>비고</th>
-                            <td><input type="text" name="m_etc" id="m_etc" class="form-control xs"></td>
+                            <td colspan="3">
+                                <input type="text" name="m_etc" id="m_etc" class="form-control xs">
+                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -89,7 +99,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $("#history_back").on("click", function () {
-            $(location).attr("href", "/materials/List.do");
+            $(location).attr("href", "/materials/Order.do");
         });
     });
 </script>
