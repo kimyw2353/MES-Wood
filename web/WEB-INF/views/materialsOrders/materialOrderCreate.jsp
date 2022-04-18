@@ -35,19 +35,19 @@
                         <tr>
                             <th>발주코드</th>
                             <td colspan="3">
-                                <input type="text" name="m_code" id="m_code" class="form-control xs">
+                                <input type="text" name="m_code" id="m_code" class="form-control xs" readonly>
                             </td>
                         </tr>
                         <tr>
                             <th>발주명</th>
                             <td colspan="3">
-                                <input type="text" name="m_name" id="m_name" class="form-control xs">
+                                <input type="text" name="m_name" id="m_name" class="form-control xs" required>
                             </td>
                         </tr>
                         <tr>
                             <th>거래처명</th>
                             <td colspan="3">
-                                <input type="text" name="account_name" id="account_name" class="form-control xs" onclick="ListAccountPopup()" readonly>
+                                <input type="text" name="account_name" id="account_name" class="form-control xs" onclick="ListAccountPopup()" readonly required>
                                 <input type="hidden" name="account_id" id="account_id" value="">
                             </td>
                         </tr>
@@ -63,7 +63,7 @@
                         </tr>
                         <tr>
                             <th>발주일</th>
-                            <td>
+                            <td colspan="3">
                                 <input type="text" name="m_create" class="form-control xs">
                             </td>
                         </tr>
@@ -99,7 +99,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $("#history_back").on("click", function () {
-            $(location).attr("href", "/materials/List.do");
+            $(location).attr("href", "/materials/Order.do");
         });
     });
 </script>
