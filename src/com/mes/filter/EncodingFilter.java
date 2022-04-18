@@ -17,6 +17,7 @@ public class EncodingFilter implements Filter {
         if(servletRequest.getCharacterEncoding() == null || servletResponse.getCharacterEncoding() == null){
             servletRequest.setCharacterEncoding(encoding);
             servletResponse.setCharacterEncoding(encoding);
+            //주석추가
         }
         filterChain.doFilter(servletRequest,servletResponse);
 
