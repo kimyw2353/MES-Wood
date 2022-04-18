@@ -14,16 +14,18 @@ public class EncodingFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-//        if(servletRequest.getCharacterEncoding() == null || servletResponse.getCharacterEncoding() == null){
-//            servletRequest.setCharacterEncoding(encoding);
-//            servletResponse.setCharacterEncoding(encoding);
-//        }
-//        filterChain.doFilter(servletRequest,servletResponse);
+        String encoding = "UTF-8";
+        if(servletRequest.getCharacterEncoding() == null || servletResponse.getCharacterEncoding() == null){
+            servletRequest.setCharacterEncoding(encoding);
+            servletResponse.setCharacterEncoding(encoding);
+        }
 
-        servletResponse.setContentType("application/json;charset=UTF-8");
-        servletResponse.setCharacterEncoding("UTF-8");
-        servletRequest.setCharacterEncoding("UTF-8");
         filterChain.doFilter(servletRequest,servletResponse);
+
+//        servletResponse.setContentType("application/json;charset=UTF-8");
+//        servletResponse.setCharacterEncoding("UTF-8");
+//        servletRequest.setCharacterEncoding("UTF-8");
+//        filterChain.doFilter(servletRequest,servletResponse);
     }
 
     @Override
