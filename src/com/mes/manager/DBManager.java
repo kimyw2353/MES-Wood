@@ -5,11 +5,11 @@ import java.sql.*;
 public class DBManager {
     public static Connection getConnection(){
         try{
-            String dbURL = "jdbc:mysql://localhost:3306/board";
-            String dbID = "root";
-            String dbPW = "root";
-            Class.forName("com.mysql.jdbc.Driver");
-            return DriverManager.getConnection(dbURL,dbID,dbPW);
+            String url = "jdbc:mysql://175.210.112.200:3006/mes_wood?serverTimezone=UTC";
+            String id = "bizplus";
+            String pw = "bizplus";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            return DriverManager.getConnection(url, id, pw);
         }catch (Exception e){
             e.printStackTrace();
         }
