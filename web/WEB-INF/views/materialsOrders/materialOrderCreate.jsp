@@ -56,10 +56,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>폭</th>
-                            <td><input type="text" name="m_height" id="m_height" class="form-control xs"></td>
-                            <th>너비</th>
-                            <td><input type="text" name="m_width" id="m_width" class="form-control xs"></td>
+                            <th>발주일</th>
+                            <td><input type="text" name = "m_create"></td>
                         </tr>
                         <tr>
                             <th>비고</th>
