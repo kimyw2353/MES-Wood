@@ -34,9 +34,10 @@
                         <th>구분</th>
                         <td>
                             <select name="account_type" class="form-control">
-                                <option value="">--유형--</option>
-                                <option value="Id">거래처코드</option>
-                                <option value="Name">거래처명</option>
+                                <option value="">회원</option>
+                                <option value="">회원</option>
+                                <option value="">회원</option>
+                                <option value="">회원</option>
                             </select>
                         </td>
                         <th>거래처</th>
@@ -58,7 +59,7 @@
                 </div>
                 <div class="f-right text-right">
                     <button type="button" id="account_input" class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i> 등록</button>
-                    <button type="button" id="account_excel_download" class="btn btn-success"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Excel </button>
+                    <button type="button" id="account_excel_download" class="btn btn-success"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Excel <button>
                     <button type="button" id="account_delete" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> 삭제 </button>
                 </div>
             </div>

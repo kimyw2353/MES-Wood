@@ -28,7 +28,7 @@ public class MaterialDao extends DBManager {
             System.out.println("materialDao materialCount 오류");
             return 0;
         }finally {
-            closeConnectionAll(rs, ps, conn);
+            closeConnectionAll(conn, ps, rs);
         }
     }
 
@@ -61,7 +61,7 @@ public class MaterialDao extends DBManager {
             e.printStackTrace();
             System.out.println("materialDao findAllMaterials 오류 ");
         }finally {
-            closeConnectionAll(rs, ps, conn);
+            closeConnectionAll(conn, ps, rs);
         }
         return materialsArrayList;
     }
@@ -89,7 +89,7 @@ public class MaterialDao extends DBManager {
             System.out.println("materialDao createMaterials 오류");
             return false;
         }finally {
-            closeConnectionAll(rs, ps, conn);
+            closeConnectionAll(conn, ps, rs);
         }
     }
 
@@ -123,7 +123,7 @@ public class MaterialDao extends DBManager {
             System.out.println("materialDao findMaterials 오류");
             return null;
         }finally {
-            closeConnectionAll(rs, ps, conn);
+            closeConnectionAll(conn, ps, rs);
         }
     }
 
@@ -151,7 +151,7 @@ public class MaterialDao extends DBManager {
             System.out.println("materialDao updateMaterials 오류");
             return false;
         }finally {
-            closeConnectionAll(rs, ps, conn);
+            closeConnectionAll(conn, ps, rs);
         }
     }
 
@@ -172,7 +172,7 @@ public class MaterialDao extends DBManager {
             System.out.println("materialDao deleteMaterials 오류");
             return false;
         }finally {
-            closeConnectionAll(rs, ps, conn);
+            closeConnectionAll(conn, ps, rs);
         }
     }
 

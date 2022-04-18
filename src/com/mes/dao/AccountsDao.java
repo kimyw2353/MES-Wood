@@ -1,6 +1,5 @@
 package com.mes.dao;
 
-import com.mes.dto.AccountsDto;
 import com.mes.manager.DBManager;
 import com.mes.model.Accounts;
 
@@ -8,7 +7,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.List;
 
 public class AccountsDao extends DBManager {
 
@@ -31,7 +29,7 @@ public class AccountsDao extends DBManager {
             e.printStackTrace();
             return 0;
         }finally {
-            closeConnectionAll(rs, ps, conn);
+            closeConnectionAll(conn, ps, rs);
         }
     }
 
@@ -60,50 +58,10 @@ public class AccountsDao extends DBManager {
         }catch (Exception e){
             e.printStackTrace();
         }finally {
-            closeConnectionAll(rs, ps, conn);
+            closeConnectionAll(conn, ps, rs);
         }
         return list;
     }
-
-    public List<Accounts> findAccountsById(String account_type, String account_name){
-        List<Accounts> list = new ArrayList<Accounts>();
-        String SQL = "SELECT * FROM accounts WHERE "+account_type;
-        try{
-            if(account_name != null && !account_name.isEmpty()){
-                SQL += " LIKE '%"+account_name.trim()+"%' ORDER BY id DESC LIMIT 10";
-            }
-            conn = getConnection();
-            ps = conn.prepareStatement(SQL);
-            rs = ps.executeQuery();
-            while (rs.next()){
-                Accounts model = new Accounts();
-                model.setId(rs.getInt(1));
-                model.setName(rs.getString(2));
-                model.setBusinessNumber(rs.getString(3));
-                model.setBusinessType(rs.getString(4));
-                model.setBusinessCategory(rs.getString(5));
-                model.setCeo(rs.getString(6));
-                model.setZipcode(rs.getString(7));
-                model.setAddress(rs.getString(8));
-                model.setAddressDesc(rs.getString(9));
-                model.setPhone(rs.getString(10));
-                model.setFax(rs.getString(11));
-                model.setEtc(rs.getString(12));
-                model.setCreatedAt(rs.getDate(13));
-                model.setUpdatedAt(rs.getDate(14));
-                list.add(model);
-            }
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }finally {
-            closeConnectionAll(rs, ps, conn);
-        }
-
-        return list;
-
-    }
-
 
     //거래처 등록
     public boolean createAccounts(Accounts accounts){
@@ -132,7 +90,7 @@ public class AccountsDao extends DBManager {
             e.printStackTrace();
             return false;
         }finally {
-            closeConnectionAll(rs, ps, conn);
+            closeConnectionAll(conn, ps, rs);
         }
     }
 
@@ -165,7 +123,7 @@ public class AccountsDao extends DBManager {
         }catch (Exception e){
             e.printStackTrace();
         }finally {
-            closeConnectionAll(rs, ps, conn);
+            closeConnectionAll(conn, ps, rs);
         }
         return accounts;
     }
@@ -197,7 +155,7 @@ public class AccountsDao extends DBManager {
             e.printStackTrace();
             return false;
         }finally {
-            closeConnectionAll(rs, ps, conn);
+            closeConnectionAll(conn, ps, rs);
         }
     }
 
@@ -216,7 +174,7 @@ public class AccountsDao extends DBManager {
             e.printStackTrace();
             return false;
         }finally {
-            closeConnectionAll(rs, ps, conn);
+            closeConnectionAll(conn, ps, rs);
         }
     }
 
@@ -235,7 +193,7 @@ public class AccountsDao extends DBManager {
             e.printStackTrace();
             return false;
         }finally {
-            closeConnectionAll(rs, ps, conn);
+            closeConnectionAll(conn, ps, rs);
         }
     }
 
@@ -254,7 +212,7 @@ public class AccountsDao extends DBManager {
             e.printStackTrace();
             return false;
         }finally {
-            closeConnectionAll(rs, ps, conn);
+            closeConnectionAll(conn, ps, rs);
         }
     }
 
