@@ -43,7 +43,7 @@ public class MaterialsOrdersDao extends DBManager {
             System.out.println("materialOrderDao findAllMaterialsOrders Error");
             return null;
         }finally {
-            closeConnectionAll(conn, ps, rs);
+            closeConnectionAll(rs, ps, conn);
         }
     }
 
