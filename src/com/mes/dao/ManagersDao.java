@@ -36,7 +36,7 @@ public class ManagersDao extends DBManager {
             e.printStackTrace();
             return false;
         } finally {
-            closeConnectionAll(rs, ps, conn);
+            closeConnectionAll(conn, ps, rs);
         }
     }
 
@@ -71,7 +71,7 @@ public class ManagersDao extends DBManager {
         }catch (Exception e){
             e.printStackTrace();
         }finally {
-            closeConnectionAll(rs, ps, conn);
+            closeConnectionAll(conn, ps, rs);
         }
         return AccountManagersList;
     }
@@ -106,7 +106,7 @@ public class ManagersDao extends DBManager {
             e.printStackTrace();
             return null;
         } finally {
-            closeConnectionAll(rs, ps, conn);
+            closeConnectionAll(conn, ps, rs);
         }
     }
 
@@ -131,7 +131,7 @@ public class ManagersDao extends DBManager {
             System.out.println("거래처 관리 매니저 수정 불가");
             return false;
         }finally {
-            closeConnectionAll(ps, conn);
+            closeConnectionAll(conn, ps, rs);
         }
     }
 
@@ -152,7 +152,7 @@ public class ManagersDao extends DBManager {
             System.out.println("거래처 관리 매니저 삭제 불가");
             return false;
         }finally {
-            closeConnectionAll(ps, conn);
+            closeConnectionAll(conn, ps);
         }
     }
     //매니저 토탈 갯수
@@ -169,7 +169,7 @@ public class ManagersDao extends DBManager {
             e.printStackTrace();
             return 0;
         }finally {
-            closeConnectionAll(rs, ps, conn);
+            closeConnectionAll(conn, ps, rs);
         }
     }
 
@@ -199,7 +199,7 @@ public class ManagersDao extends DBManager {
         }catch (Exception e){
             e.printStackTrace();
         }finally {
-            closeConnectionAll(rs, ps, conn);
+            closeConnectionAll(conn, ps, rs);
         }
         return list;
     }
@@ -223,7 +223,7 @@ public class ManagersDao extends DBManager {
             e.printStackTrace();
             return false;
         }finally {
-            closeConnectionAll(ps, conn);
+            closeConnectionAll(conn, ps, rs);
         }
     }
 
@@ -254,7 +254,7 @@ public class ManagersDao extends DBManager {
         }catch (Exception e){
             e.printStackTrace();
         }finally {
-            closeConnectionAll(rs, ps, conn);
+            closeConnectionAll(conn, ps, rs);
         }
         return managers;
     }
@@ -280,7 +280,7 @@ public class ManagersDao extends DBManager {
             e.printStackTrace();
             return false;
         }finally {
-            closeConnectionAll(ps, conn);
+            closeConnectionAll(conn, ps, rs);
         }
     }
 
@@ -300,7 +300,7 @@ public class ManagersDao extends DBManager {
             e.printStackTrace();
             return false;
         }finally {
-            closeConnectionAll(ps, conn);
+            closeConnectionAll(conn, ps, rs);
         }
     }
 
