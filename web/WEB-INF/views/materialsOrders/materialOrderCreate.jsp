@@ -50,6 +50,10 @@
                             </td>
                         </tr>
                         <tr>
+                            <th>발주 금액</th>
+                            <td>
+                                <input type="text" name="">
+                            </td>
                         </tr>
                         <tr>
                             <th>폭</th>

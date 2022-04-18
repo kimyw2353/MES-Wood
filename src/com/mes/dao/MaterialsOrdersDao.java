@@ -14,6 +14,12 @@ public class MaterialsOrdersDao extends DBManager {
     private ResultSet rs = null;
     private Connection conn = null;
 
+    public boolean createMeterialsOrders(){
+        boolean createCheck = false;
+        String SQL = "INSERT INTO materialsorders(name, account_id, orderDate) VALUES()";
+        return false;
+    }
+
 
     public ArrayList<MaterialsOrders> findAllMaterialsOrders(){
         ArrayList<MaterialsOrders> materialsOrdersList = new ArrayList<>();
