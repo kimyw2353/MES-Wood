@@ -38,12 +38,13 @@ public class MaterialOrderCreateController extends HttpServlet {
         MaterialsOrdersDao dao = new MaterialsOrdersDao();
         boolean orderCheck = false;
 
-        dto.setId(Integer.parseInt(req.getParameter("m_code")));
+        dto.setNumber(req.getParameter("m_number"));
         dto.setName(req.getParameter("m_name"));
         dto.setAccount_id(Integer.parseInt(req.getParameter("account_id")));
+        dto.setOrderDate(req.getParameter("m_order"));
         dto.setEtc(req.getParameter("m_etc"));
 
-        System.out.println(dto.toString());
+        System.out.println("MOCreate dto : "+dto.toString());
 
         if(dto.getId() >= dao.findLastId()){
             dto.setId(dao.findLastId());
@@ -56,7 +57,7 @@ public class MaterialOrderCreateController extends HttpServlet {
 
         String loc;
         if(orderCheck){
-            loc = "/materials/Order.do";
+            loc = "/materials/OrderList.do";
             session.setAttribute("successMessage", "발주 등록 완료");
         }else {
             loc = "javascript:history.back()";

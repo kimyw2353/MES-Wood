@@ -35,7 +35,7 @@
                         <tr>
                             <th>발주코드</th>
                             <td colspan="3">
-                                <input type="text" name="m_code" id="m_code" class="form-control xs" value="${lastId}" readonly>
+                                <input type="text" name="m_number" id="m_number" class="form-control xs" value="${lastId}" readonly>
                             </td>
                         </tr>
                         <tr>

@@ -115,7 +115,7 @@
                     <tr STYLE="text-align: center">
                         <td><input type="checkbox" name="idx[]" id="idx[]" value="${materialsOrdersList.id}"/></td>
                         <td>${materialsOrdersList.number}</td>
-                        <td><a href="/materials/orders.do?id=${materialsOrdersList.id}">${materialsOrdersList.name}</a></td>
+                        <td><a href="/materials/OrderDetail.do?id=${materialsOrdersList.id}">${materialsOrdersList.name}</a></td>
                         <td>${materialsOrdersList.accountName}</td>
                         <td>${materialsOrdersList.orderDate}</td>
                         <td>${materialsOrdersList.deadlineDate}</td>
