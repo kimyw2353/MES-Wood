@@ -9,8 +9,8 @@ public class MaterialsOrdersDto {
     private String number;
     private int account_id;
     private int price;
-    private Timestamp orderDate;
-    private Timestamp deadlineDate;
+    private String orderDate;
+    private String deadlineDate;
     private String etc;
     private LocalDateTime created_at;
     private LocalDateTime update_at;
@@ -65,19 +65,19 @@ public class MaterialsOrdersDto {
         this.price = price;
     }
 
-    public Timestamp getOrderDate() {
+    public String getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(Timestamp orderDate) {
+    public void setOrderDate(String orderDate) {
         this.orderDate = orderDate;
     }
 
-    public Timestamp getDeadlineDate() {
+    public String getDeadlineDate() {
         return deadlineDate;
     }
 
-    public void setDeadlineDate(Timestamp deadlineDate) {
+    public void setDeadlineDate(String deadlineDate) {
         this.deadlineDate = deadlineDate;
     }
 

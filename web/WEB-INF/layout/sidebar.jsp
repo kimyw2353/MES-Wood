@@ -26,7 +26,7 @@
                 <ul>
                     <li><a href="/materials/List.do">자재정보관리</a></li>
                     <li><a href="#">자재자가처리관리</a></li>
-                    <li><a href="/materials/Order.do">자재발주관리</a></li>
+                    <li><a href="/materials/OrderList.do">자재발주관리</a></li>
                 </ul>
             </li>
         </ul>

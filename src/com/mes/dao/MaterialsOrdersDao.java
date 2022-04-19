@@ -19,14 +19,15 @@ public class MaterialsOrdersDao extends DBManager {
 
     public boolean createMaterialsOrders(MaterialsOrdersDto dto){
         boolean createCheck = false;
-        String SQL = "INSERT INTO materialsorders(id, name, account_id, orderDate, etc) VALUES(?, ?, ?, now(), ?)";
+        String SQL = "INSERT INTO materialsorders(name, number, account_id, orderDate, etc) VALUES(?, ?, ?, ?, ?)";
         try {
             conn = getConnection();
             ps = conn.prepareStatement(SQL);
-            ps.setInt(1, dto.getId());
-            ps.setString(2,dto.getName());
+            ps.setString(1,dto.getName());
+            ps.setString(2, dto.getNumber());
             ps.setInt(3,dto.getAccount_id());
-            ps.setString(4, dto.getEtc());
+            ps.setString(4, dto.getOrderDate());
+            ps.setString(5, dto.getEtc());
 
             return ps.executeUpdate() ==1;
         }catch (Exception e){
@@ -41,7 +42,8 @@ public class MaterialsOrdersDao extends DBManager {
     public int findLastId(){
         int lastId = 0;
 //        String SQL = "SELECT LAST_INSERT_ID()";
-        String SQL = "show table status where name = 'materialsorders'";
+//        String SQL = "show table status where name = 'materialsorders'";
+        String SQL = "SELECT MAX(`number`) AS 'number' FROM materialsorders";
         try {
             conn = getConnection();
             ps = conn.prepareStatement(SQL);
@@ -49,7 +51,8 @@ public class MaterialsOrdersDao extends DBManager {
             if(!rs.next()){
                 lastId = 10001;
             }else{
-                lastId = rs.getInt("Auto_increment");
+                lastId = rs.getInt(1);
+                System.out.println(lastId);
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -93,4 +96,32 @@ public class MaterialsOrdersDao extends DBManager {
         }
     }
 
+    public MaterialsOrdersDto selectMaterialsOrder(int m_orderId) {
+        MaterialsOrdersDto dto = new MaterialsOrdersDto();
+        String SQL = "SELECT m.id, m.name, m.number, a.name, m.price, m.orderDate, m.etc\n" +
+                "FROM materialsorders m INNER JOIN accounts a ON m.account_id = a.id\n" +
+                "WHERE m.id =?";
+        try{
+            conn = getConnection();
+            ps = conn.prepareStatement(SQL);
+            ps.setInt(1, m_orderId);
+            rs = ps.executeQuery();
+
+            if(rs.next()){
+                dto.setId(rs.getInt(1));
+                dto.setName(rs.getString(2));
+                dto.setNumber(rs.getString(3));
+                dto.setAccount_name(rs.getString(4));
+                dto.setPrice(rs.getInt(5));
+                dto.setEtc(rs.getString(6));
+
+                return dto;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return dto;
+
+    }
 }
