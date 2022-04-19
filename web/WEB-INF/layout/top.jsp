@@ -11,12 +11,13 @@
     <c:if test="${not empty param.stylesheet}">
         <link rel="stylesheet" type="text/css" href="${param.stylesheet}" />
     </c:if>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
 
 
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.12.1.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/common.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery-ui.min.js"></script>
 </head>
 <body>
 <div class="wrapper ${param.wrapperClass}">

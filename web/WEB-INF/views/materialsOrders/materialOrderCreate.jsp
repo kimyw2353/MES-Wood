@@ -35,7 +35,7 @@
                         <tr>
                             <th>발주코드</th>
                             <td colspan="3">
-                                <input type="text" name="m_code" id="m_code" class="form-control xs" readonly>
+                                <input type="text" name="m_code" id="m_code" class="form-control xs" value="${lastId}" readonly>
                             </td>
                         </tr>
                         <tr>
@@ -48,7 +48,7 @@
                             <th>거래처명</th>
                             <td colspan="3">
                                 <input type="text" name="account_name" id="account_name" class="form-control xs" onclick="ListAccountPopup()" readonly required>
-                                <input type="hidden" name="account_id" id="account_id" value="">
+                                <input type="hidden" name="account_id" id="account_id">
                             </td>
                         </tr>
                         <tr>
@@ -64,7 +64,7 @@
                         <tr>
                             <th>발주일</th>
                             <td colspan="3">
-                                <input type="text" name="m_create" class="form-control xs">
+                                <input type="text" name="m_order" id="datepicker" class="form-control xs">
                             </td>
                         </tr>
                         <tr>
@@ -100,6 +100,9 @@
     $(document).ready(function () {
         $("#history_back").on("click", function () {
             $(location).attr("href", "/materials/Order.do");
+        });
+        $(function(){
+            $("#datepicker").datepicker();
         });
     });
 </script>

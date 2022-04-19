@@ -1,5 +1,6 @@
 package com.mes.model;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 public class MaterialsOrders {
@@ -25,8 +26,8 @@ public class MaterialsOrders {
     protected String number;
     protected int account_id;
     protected int price;
-    protected String orderDate;
-    protected String deadlineDate;
+    protected Date orderDate;
+    protected Date deadlineDate;
     protected String etc;
     protected Timestamp created_at;
     protected Timestamp updated_at;
@@ -74,19 +75,19 @@ public class MaterialsOrders {
         this.price = price;
     }
 
-    public String getOrderDate() {
+    public Date getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(String orderDate) {
+    public void setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
     }
 
-    public String getDeadlineDate() {
+    public Date getDeadlineDate() {
         return deadlineDate;
     }
 
-    public void setDeadlineDate(String deadlineDate) {
+    public void setDeadlineDate(Date deadlineDate) {
         this.deadlineDate = deadlineDate;
     }
 
