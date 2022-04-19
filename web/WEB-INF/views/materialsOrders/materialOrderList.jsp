@@ -117,8 +117,8 @@
                         <td>${materialsOrdersList.number}</td>
                         <td><a href="/materials/orders.do?id=${materialsOrdersList.id}">${materialsOrdersList.name}</a></td>
                         <td>${materialsOrdersList.accountName}</td>
-                        <td>${materialsOrdersList.orderdate}</td>
-                        <td>${materialsOrdersList.deadlindate}</td>
+                        <td>${materialsOrdersList.orderDate}</td>
+                        <td>${materialsOrdersList.deadlineDate}</td>
                         <td>${materialsOrdersList.etc}</td>
                     </tr>
                 </c:forEach>
