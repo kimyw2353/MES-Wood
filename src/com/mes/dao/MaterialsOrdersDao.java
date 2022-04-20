@@ -17,25 +17,68 @@ public class MaterialsOrdersDao extends DBManager {
     private Connection conn = null;
     int result;
 
-    public boolean createMaterialsOrders(MaterialsOrdersDto dto){
-        boolean createCheck = false;
-        String SQL = "INSERT INTO materialsorders(name, number, account_id, orderDate, etc) VALUES(?, ?, ?, ?, ?)";
-        try {
-            conn = getConnection();
-            ps = conn.prepareStatement(SQL);
-            ps.setString(1,dto.getName());
-            ps.setString(2, dto.getNumber());
-            ps.setInt(3,dto.getAccount_id());
-            ps.setString(4, dto.getOrderDate());
-            ps.setString(5, dto.getEtc());
+    //자재발주 토탈 갯수
+    public int MaterialordersCount(){
+        String sql = "SELECT COUNT(*) FROM materialsorder WHERE 1=1";
 
-            return ps.executeUpdate() ==1;
+        try{
+            conn = getConnection();
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            return rs.next() ? rs.getInt(1) : 0;
         }catch (Exception e){
             e.printStackTrace();
-            System.out.println("materialsOrdersDao createMaterialsOrders() 오류");
+            return 0;
         }finally {
-            closeConnectionAll(ps, conn);
+            closeConnectionAll(rs, ps, conn);
         }
+    }
+
+    public boolean createMaterialsOrders(MaterialsOrdersDto dto){
+        boolean createCheck = false;
+        String SQL;
+        System.out.println("orderDate = " + dto.getOrderDate());
+        if(dto.getOrderDate()=="default"){
+            SQL = "INSERT INTO materialsorders(name, number, account_id, orderDate, etc) VALUES(?, ?, ?, DEFAULT, ?)";
+            try {
+                conn = getConnection();
+                ps = conn.prepareStatement(SQL);
+                ps.setString(1,dto.getName());
+                ps.setString(2, dto.getNumber());
+                ps.setInt(3,dto.getAccount_id());
+                ps.setString(4, dto.getEtc());
+
+                System.out.println(SQL);
+
+                return ps.executeUpdate() ==1;
+            }catch (Exception e){
+                e.printStackTrace();
+                System.out.println("materialsOrdersDao createMaterialsOrders() 오류");
+            }finally {
+                closeConnectionAll(ps, conn);
+            }
+        }else{
+            SQL = "INSERT INTO materialsorders(name, number, account_id, orderDate, etc) VALUES(?, ?, ?, ?, ?)";
+            try {
+                conn = getConnection();
+                ps = conn.prepareStatement(SQL);
+                ps.setString(1,dto.getName());
+                ps.setString(2, dto.getNumber());
+                ps.setInt(3,dto.getAccount_id());
+                ps.setString(4, dto.getOrderDate());
+                ps.setString(5, dto.getEtc());
+
+                System.out.println(SQL);
+                return ps.executeUpdate() ==1;
+            }catch (Exception e){
+                e.printStackTrace();
+                System.out.println("materialsOrdersDao createMaterialsOrders() 오류");
+            }finally {
+                closeConnectionAll(ps, conn);
+            }
+        }
+
         return false;
     }
 

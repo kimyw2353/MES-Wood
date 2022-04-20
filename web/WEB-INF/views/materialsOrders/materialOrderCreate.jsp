@@ -41,7 +41,7 @@
                         <tr>
                             <th>발주명</th>
                             <td colspan="3">
-                                <input type="text" name="m_name" id="m_name" class="form-control xs" required>
+                                <input type="text" name="m_name" id="m_name" class="form-control xs">
                             </td>
                         </tr>
                         <tr>
@@ -97,6 +97,22 @@
 </div>
 
 <script type="text/javascript">
+    function createCheck() {
+        const m_name = document.getElementById("m_name");
+        const account_name = document.getElementById("account_name");
+        if(!m_name.value){
+            alert('발주명을 입력해주세요.');
+            m_name.focus();
+            return false;
+        }
+        if(!account_name.value){
+            alert('거래처를 선택해주세요.');
+            account_name.focus();
+            return false;
+        }
+        document.getElementById("input_form").submit();
+    }
+
     $(document).ready(function () {
         $("#history_back").on("click", function () {
             $(location).attr("href", "/materials/Order.do");
