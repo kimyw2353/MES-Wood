@@ -156,7 +156,8 @@ public class MaterialsOrdersDao extends DBManager {
                 dto.setNumber(rs.getString(3));
                 dto.setAccount_name(rs.getString(4));
                 dto.setPrice(rs.getInt(5));
-                dto.setEtc(rs.getString(6));
+                dto.setOrderDate(String.valueOf(rs.getDate(6)));
+                dto.setEtc(rs.getString(7));
 
                 return dto;
             }

@@ -1,4 +1,4 @@
-package com.mes.controller.material.order;
+package com.mes.controller.materialOrder;
 
 import com.mes.dao.MaterialDao;
 import com.mes.dao.MaterialsOrdersDao;
