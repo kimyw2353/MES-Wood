@@ -325,3 +325,11 @@ function ListMaterialOrderPopup() {
         option(1100, 670) + ',toolbar=no,menubar=no,status=no,scrollbars=no,resizable=no'
     );
 }
+
+function createMaterialOrderPopup(orderId){
+    window.open(
+        '/orderMaterial/MaterialAdd.do?orderId='+orderId,
+        'AddOrderMaterialPopup',
+        option(500, 350) + ',toolbar=no,menubar=no,status=no,scrollbars=no,resizable=no'
+    )
+}

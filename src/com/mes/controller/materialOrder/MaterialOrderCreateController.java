@@ -1,4 +1,4 @@
-package com.mes.controller.material.order;
+package com.mes.controller.materialOrder;
 
 import com.mes.dao.MaterialsOrdersDao;
 import com.mes.dto.MaterialsOrdersDto;
@@ -35,15 +35,14 @@ public class MaterialOrderCreateController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        MaterialsOrdersDto dto = new MaterialsOrdersDto();
-        MaterialsOrdersDao dao = new MaterialsOrdersDao();
         String number = req.getParameter("m_number");
         String name = req.getParameter("m_name");
         String account_id = req.getParameter("account_id");
-        boolean orderCheck = false;
-        int int_account_id = 0;
         String orderDate = req.getParameter("m_order");
         String etc = req.getParameter("m_etc");
+        int int_account_id = 0;
+        boolean orderCheck = false;
+
         if(name==null || name.isEmpty() || account_id==null || account_id.isEmpty()){
             resp.setCharacterEncoding("UTF-8");
             resp.setContentType("text/html;charset=UTF-8");
@@ -57,6 +56,8 @@ public class MaterialOrderCreateController extends HttpServlet {
             if(orderDate==null||orderDate.isEmpty()){
                 orderDate = "default";
             }
+        MaterialsOrdersDto dto = new MaterialsOrdersDto();
+        MaterialsOrdersDao dao = new MaterialsOrdersDao();
             int_account_id = Integer.parseInt(account_id);
             dto.setId(dao.findLastId());
             dto.setNumber(number);

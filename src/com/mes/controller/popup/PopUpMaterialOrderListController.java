@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/popup/AccountList.do")
+@WebServlet("/popup/MaterialsOrderList.do")
 public class PopUpMaterialOrderListController extends HttpServlet {
 
     @Override
