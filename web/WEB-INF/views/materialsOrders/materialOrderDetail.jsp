@@ -49,7 +49,7 @@
                     <tr>
                         <th>거래처명</th>
                         <td colspan="3">
-                            <input type="text" name="account_name" id="account_name" class="form-control xs" onclick="ListAccountPopup()"
+                            <input type="text" name="account_name" id="account_name" class="form-control xs" onclick="ListMaterialOrderPopup()"
                                    value="${m_orderDetail.getAccount_name}" readonly required>
                             <input type="hidden" name="account_id" id="account_id">
                         </td>

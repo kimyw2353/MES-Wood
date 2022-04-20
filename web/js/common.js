@@ -317,3 +317,11 @@ function ListAccountPopup() {
         option(1100, 670) + ',toolbar=no,menubar=no,status=no,scrollbars=no,resizable=no'
     );
 }
+
+function ListMaterialOrderPopup() {
+    window.open(
+        '/popup/AccountList.do',
+        'popup_account_list',
+        option(1100, 670) + ',toolbar=no,menubar=no,status=no,scrollbars=no,resizable=no'
+    );
+}

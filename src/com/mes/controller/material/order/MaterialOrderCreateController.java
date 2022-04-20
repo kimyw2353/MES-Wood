@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -36,24 +37,36 @@ public class MaterialOrderCreateController extends HttpServlet {
         HttpSession session = req.getSession();
         MaterialsOrdersDto dto = new MaterialsOrdersDto();
         MaterialsOrdersDao dao = new MaterialsOrdersDao();
+        String number = req.getParameter("m_number");
+        String name = req.getParameter("m_name");
+        String account_id = req.getParameter("account_id");
         boolean orderCheck = false;
-
-        dto.setNumber(req.getParameter("m_number"));
-        dto.setName(req.getParameter("m_name"));
-        dto.setAccount_id(Integer.parseInt(req.getParameter("account_id")));
-        dto.setOrderDate(req.getParameter("m_order"));
-        dto.setEtc(req.getParameter("m_etc"));
-
-        System.out.println("MOCreate dto : "+dto.toString());
-
-        if(dto.getId() >= dao.findLastId()){
+        int int_account_id = 0;
+        String orderDate = req.getParameter("m_order");
+        String etc = req.getParameter("m_etc");
+        if(name==null || name.isEmpty() || account_id==null || account_id.isEmpty()){
+            resp.setCharacterEncoding("UTF-8");
+            resp.setContentType("text/html;charset=UTF-8");
+            PrintWriter out = resp.getWriter();
+            out.println("<script>");
+            out.println("alert('발주명과 거래처명은 필수 입력사항입니다.');");
+            out.println("history.back();");
+            out.println("</script>");
+            out.close();
+        }else{
+            if(orderDate==null||orderDate.isEmpty()){
+                orderDate = "default";
+            }
+            int_account_id = Integer.parseInt(account_id);
             dto.setId(dao.findLastId());
+            dto.setNumber(number);
+            dto.setName(name);
+            dto.setAccount_id(int_account_id);
+            dto.setOrderDate(orderDate);
+            dto.setEtc(etc);
+
+            orderCheck = dao.createMaterialsOrders(dto);
         }
-
-        //유효성체크 해야함
-
-        orderCheck = dao.createMaterialsOrders(dto);
-        System.out.println("orderCheck : " + orderCheck);
 
         String loc;
         if(orderCheck){
