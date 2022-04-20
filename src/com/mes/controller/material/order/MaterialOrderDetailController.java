@@ -1,5 +1,6 @@
 package com.mes.controller.material.order;
 
+import com.mes.dao.MaterialDao;
 import com.mes.dao.MaterialsOrdersDao;
 import com.mes.dto.MaterialsOrdersDto;
 
@@ -19,16 +20,16 @@ public class MaterialOrderDetailController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
 
-        MaterialsOrdersDao dao = new MaterialsOrdersDao();
-        MaterialsOrdersDto dto = new MaterialsOrdersDto();
+        MaterialsOrdersDao orderDao = new MaterialsOrdersDao();
+        MaterialDao dao = new MaterialDao();
 
         int m_OrderId = Integer.parseInt(req.getParameter("id"));
 
         if(!dao.findById("materialsorders", m_OrderId)){
             resp.sendRedirect("/materials/OrderList.do");
         }else {
-            dto = dao.selectMaterialsOrder(m_OrderId);
-            req.setAttribute("m_orderDetail", dto);
+            req.setAttribute("orderDetail", orderDao.selectMaterialsOrder(m_OrderId));
+            req.setAttribute("materialsList", dao.findAllMaterials());
             RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/materialsOrders/materialOrderDetail.jsp");
             rd.forward(req, resp);
         }
