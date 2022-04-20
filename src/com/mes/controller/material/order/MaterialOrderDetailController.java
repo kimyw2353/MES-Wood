@@ -32,6 +32,7 @@ public class MaterialOrderDetailController extends HttpServlet {
             req.setAttribute("materialsList", dao.findAllMaterials());
             RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/materialsOrders/materialOrderDetail.jsp");
             rd.forward(req, resp);
+            //주석추가중
         }
     }
 
