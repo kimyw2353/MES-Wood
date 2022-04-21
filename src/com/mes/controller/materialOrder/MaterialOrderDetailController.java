@@ -2,6 +2,7 @@ package com.mes.controller.materialOrder;
 
 import com.mes.dao.MaterialDao;
 import com.mes.dao.MaterialsOrdersDao;
+import com.mes.dao.OrderMaterialsDao;
 import com.mes.dto.MaterialsOrdersDto;
 
 import javax.servlet.RequestDispatcher;
@@ -21,7 +22,7 @@ public class MaterialOrderDetailController extends HttpServlet {
         HttpSession session = req.getSession();
 
         MaterialsOrdersDao orderDao = new MaterialsOrdersDao();
-        MaterialDao dao = new MaterialDao();
+        OrderMaterialsDao dao = new OrderMaterialsDao();
 
         int m_OrderId = Integer.parseInt(req.getParameter("id"));
 
@@ -29,7 +30,7 @@ public class MaterialOrderDetailController extends HttpServlet {
             resp.sendRedirect("/materials/OrderList.do");
         }else {
             req.setAttribute("orderDetail", orderDao.selectMaterialsOrder(m_OrderId));
-            req.setAttribute("materialsList", dao.findAllMaterials());
+            req.setAttribute("materialsList", dao.findMaterialsByOrderId(m_OrderId));
             RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/materialsOrders/materialOrderDetail.jsp");
             rd.forward(req, resp);
         }

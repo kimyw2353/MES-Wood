@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/popup/MaterialsOrderList.do")
-public class PopUpMaterialOrderListController extends HttpServlet {
+public class PopUpMaterialListController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -23,7 +23,7 @@ public class PopUpMaterialOrderListController extends HttpServlet {
         req.setAttribute("m_orderList", dao.findAllMaterialsOrders());
         req.setAttribute("m_totalCount", dao.MaterialordersCount());
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/popup/accountListPopup.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/popup/materialListPopup.jsp");
         dispatcher.forward(req, resp);
     }
 
