@@ -11,4 +11,10 @@ public class OrderMaterialsDao extends DBManager {
     private Connection conn = null;
     private PreparedStatement ps = null;
     private ResultSet rs = null;
+
+    //발주 자재 추가
+    public boolean createOrderMaterials(){
+        conn = getConnection();
+
+    }
 }
