@@ -32,6 +32,8 @@ public class MaterialDao extends DBManager {
         }
     }
 
+
+
     //자재 관리 리스트 조회
     public ArrayList<Materials> findAllMaterials(){
 

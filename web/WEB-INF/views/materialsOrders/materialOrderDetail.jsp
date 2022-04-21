@@ -130,16 +130,16 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach var="orderM" items="${orderMaterialsList}">
+                    <c:forEach var="orderM" items="${materialsList}">
                         <tr>
                             <td class="text-center"><input type="checkbox" name="managerIdx[]" value="${orderM.id}"></td>
+                            <td class="text-center">${orderM.code}</td>
                             <td class="text-center">
                                 <a onclick="detailManagerPopup(${orderM.id})">${orderM.name}</a>
                             </td>
-                            <td class="text-center">${orderM.email}</td>
-                            <td class="text-center">${orderM.phone}</td>
-                            <td class="text-center">${orderM.position}</td>
-                            <td class="text-center">${orderM.department}</td>
+                            <td class="text-center">${orderM.height} x ${orderM.width}</td>
+                            <td class="text-center">${orderM.amount}</td>
+                            <td class="text-center">${orderM.price}</td>
                         </tr>
                     </c:forEach>
                     </tbody>

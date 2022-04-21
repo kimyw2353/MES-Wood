@@ -18,6 +18,9 @@ import java.io.PrintWriter;
 public class OrderMaterialAddController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int order_id = Integer.parseInt(req.getParameter("orderId"));
+        req.setAttribute("orderId", order_id);
+
         String path = "/WEB-INF/views/materialsOrders/popup/orderMaterialAddPopup.jsp";
         RequestDispatcher rd = req.getRequestDispatcher(path);
         rd.forward(req, resp);
@@ -26,22 +29,25 @@ public class OrderMaterialAddController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        String input_orderId = req.getParameter("orderId");
-        int order_id;
+        OrderMaterialsDao dao = new OrderMaterialsDao();
+        boolean check = false;
 
-        if (input_orderId.isEmpty() || input_orderId == null){
-            PrintWriter out = resp.getWriter();
-            out.println("<script>");
-            out.println("alert('다시 시도해 주세요.');");
-            out.println("history.back();");
-            out.println("</script>");
-            out.close();
-        }else {
-            OrderMaterialsDto orderMaterials = new OrderMaterialsDto();
-            OrderMaterialsDao dao = new OrderMaterialsDao();
-            order_id = Integer.parseInt(req.getParameter("orderId"));
+        int amount = Integer.parseInt(req.getParameter("amount"));
+        int price = Integer.parseInt(req.getParameter("price"));
+        int order_id = Integer.parseInt(req.getParameter("order_id"));
+        int m_id = Integer.parseInt(req.getParameter("m_id"));
 
+        dao.createOrderMaterials(amount, price, order_id, m_id);
 
+        String loc;
+        if(check){
+            loc = "/materials/OrderDetail.do?id="+req.getParameter("order_id");
+            session.setAttribute("successMessage", "자재 추가 완료");
+        }else{
+            loc = "javascript:history.back()";
+            session.setAttribute("errorMessage", "자재 추가 실패");
         }
+        resp.sendRedirect(loc);
+
     }
 }
