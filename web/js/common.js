@@ -318,10 +318,10 @@ function ListAccountPopup() {
     );
 }
 
-function ListMaterialOrderPopup() {
+function ListMaterialPopup() {
     window.open(
-        '/popup/AccountList.do',
-        'popup_account_list',
+        '/popup/MaterialsOrderList.do',
+        'popup_material_list',
         option(1100, 670) + ',toolbar=no,menubar=no,status=no,scrollbars=no,resizable=no'
     );
 }
@@ -331,5 +331,5 @@ function createMaterialOrderPopup(orderId){
         '/orderMaterial/MaterialAdd.do?orderId='+orderId,
         'AddOrderMaterialPopup',
         option(500, 350) + ',toolbar=no,menubar=no,status=no,scrollbars=no,resizable=no'
-    )
+    );
 }
