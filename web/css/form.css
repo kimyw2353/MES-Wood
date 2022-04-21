@@ -26,6 +26,10 @@
 	padding: 1px 2px !important;
 }
 
+.form-control.read-only {
+	background-color: #eeeeee;
+}
+
 a {
 	color: #3c8dbc;
 	line-height: 1.5em;
