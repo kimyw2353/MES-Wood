@@ -8,7 +8,7 @@
     <div class="content-header">
         <p class="title">자재 발주 등록</p>
     </div>
-    <form name="order_material_form" method="post" onsubmit="return false">
+    <form name="order_material_form" method="post" action="/orderMaterial/MaterialAdd.do">
         <table class="table-input xs">
             <colgroup>
                 <col width="150px">
@@ -16,24 +16,38 @@
             </colgroup>
             <tbody>
             <tr>
+                <td>발주id : <input type="text" name="order_id" id="order_id" value="${orderId}">
+                자재id<input type="text" name="m_id" id="m_id"></td>
+            </tr>
+            <tr>
                 <th>자재코드</th>
-                <td><input type="text" name="m_code" class="form-control xs"></td>
+                <td>
+                    <input type="text" name="m_code" class="form-control xs read-only" readonly>
+                </td>
             </tr>
             <tr>
                 <th>자재명</th>
-                <td><input type="text" name="m_name" class="form-control xs"></td>
+                <td>
+                    <input type="text" name="m_name" class="form-control xs" onclick="ListMaterialPopup();" readonly>
+                </td>
             </tr>
             <tr>
                 <th>규격</th>
-                <td><input type="text" name="m_size" class="form-control xs"></td>
+                <td>
+                    <input type="text" name="m_size" class="form-control xs read-only" readonly>
+                </td>
             </tr>
             <tr>
                 <th>수량</th>
-                <td><input type="text" name="amount" class="form-control xs"></td>
+                <td>
+                    <input type="text" name="amount" class="form-control xs">
+                </td>
             </tr>
             <tr>
                 <th>단가</th>
-                <td><input type="text" name="price" class="form-control xs"></td>
+                <td>
+                    <input type="text" name="price" class="form-control xs">
+                </td>
             </tr>
             </tbody>
         </table>
@@ -46,5 +60,3 @@
         </div>
     </form>
 </div>
-<script type="text/javascript">
-</script>
