@@ -83,7 +83,7 @@
                             </button>
                         </div>
                         <div class="f-right">
-                            <button type="submit" class="btn btn-primary">
+                            <button type="button" onclick="createCheck(this.form)" class="btn btn-primary">
                                 <i class="fa fa-pencil" aria-hidden="true"></i>등록
                             </button>
                         </div>
@@ -92,12 +92,14 @@
             </form>
         </div>
     </div>
-
-    <jsp:include page="../../layout/footer.jsp" flush="false"/>
 </div>
 
+
+
+<jsp:include page="../../layout/footer.jsp" flush="false"/>
+<jsp:include page="../../layout/bottom.jsp" flush="false"/>
 <script type="text/javascript">
-    function createCheck() {
+    function createCheck(f) {
         const m_name = document.getElementById("m_name");
         const account_name = document.getElementById("account_name");
         if(!m_name.value){
@@ -110,7 +112,7 @@
             account_name.focus();
             return false;
         }
-        document.getElementById("input_form").submit();
+        f.submit();
     }
 
     $(document).ready(function () {
@@ -122,5 +124,3 @@
         });
     });
 </script>
-
-<jsp:include page="../../layout/bottom.jsp" flush="false"/>

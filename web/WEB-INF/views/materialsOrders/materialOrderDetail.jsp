@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:include page="../../layout/top.jsp">
-    <jsp:param name="title" value="Account List"/>
+    <jsp:param name="title" value="MaterialOrder Detail"/>
 </jsp:include>
 
 <jsp:include page="../../layout/sidebar.jsp"/>
@@ -33,7 +33,7 @@
                     </colgroup>
                     <tbody>
                         <tr>
-                            <input type="text" name="m_id" class="form-control xs" value="${orderDetail.getId()}">
+                            <input type="hidden" name="m_id" class="form-control xs" value="${orderDetail.getId()}">
                         <tr>
                             <th>발주코드</th>
                             <td colspan="3">
