@@ -6,19 +6,18 @@
 </jsp:include>
 
 <div class="container" style="width: 100%; float: left" >
-    <%--<jsp:include page="../../layout/header.jsp"/>--%>
-
     <div id="content">
         <div class="content-header">
-            <p class="title">자재 목록</p>
+            <p class="title">자재정보관리</p>
             <ol class="breadcrumb">
-                <li><i class="fa fa-home"></i></li>
+                <li><i class="fa fa-home" aria-hidden="true"></i></li>
+                <li>자재정보관리</li>
+                <li>조회</li>
             </ol>
         </div>
 
         <div class="box box-bg">
-            <form name="search_form" method="GET" action="/managers/List.do">
-                <input type="hidden" name="page">
+            <form name="search_form" method="GET">
                 <table class="table-input">
                     <colgroup>
                         <col width="15%">
@@ -30,61 +29,77 @@
                     <tr>
                         <th>구분</th>
                         <td>
-                            <select name="account_type" class="form-control">
+                            <select name="material_type" class="form-control">
                                 <option value="">회원</option>
                                 <option value="">회원</option>
                                 <option value="">회원</option>
                                 <option value="">회원</option>
                             </select>
                         </td>
-                        <th>거래처</th>
-                        <td><input type="text" name="account_name" class="form-control"></td>
+                        <th>자재명</th>
+                        <td><input type="text" name="material_name" class="form-control"></td>
                     </tr>
                     </tbody>
                 </table>
 
-                <div class="mg-top-10 mg-bottom-10 text-right">
-                    <button type="submit" class="btn btn-default search_submit"><i class="fa fa-search"></i>검색하기
-                    </button>
-                </div>
-
-                <div class="clearfix mg-bottom-10">
-                    <div class="f-left ft-bold mg-top-5">
-                        Total : ${accountsTotalCount} 건
+                <div class="clearfix mg-top-10 mg-bottom-10">
+                    <div class="f-right text-right">
+                        <button type="submit" class="btn btn-default search_submit"><i class="fa fa-search" aria-hidden="true"></i>검색하기</button>
                     </div>
                 </div>
             </form>
 
+            <div class="clearfix mg-top-10 mg-bottom-10">
+                <div class="f-left ft-bold mg-top-5">
+                    Total : ${m_totalCount}건
+                </div>
+            </div>
+
             <table class="table-list full">
                 <colgroup>
-
-
-                    <col width="*">
+                    <col width="50">
+                    <%--<col width="100px">--%>
+                    <col width="150px">
+                    <col width="300px">
+                    <col width="200px">
+                    <col width="200px">
+                    <col width="100px">
+                    <col width="100px">
                 </colgroup>
                 <thead>
                 <tr>
+                    <th><input type="checkbox" name="all"></th>
                     <%--<th>구분</th>--%>
+                    <th>자재코드</th>
+                    <th>자재명</th>
                     <th>거래처명</th>
-                    <th>대표자</th>
-                    <th>대표번호</th>
+                    <th>규격</th>
                     <th>비고</th>
                 </tr>
                 </thead>
                 <tbody>
-                <!-- <tr>
-                    <td colspan="6" class="text-center">등록된 내용이 없습니다.</td>
-                </tr> -->
 
-                <c:forEach var="accountsList" items="${accountsList}">
-                    <tr style="text-align: center">
-                        <%--<td>${accountsList.kind }</td>--%>
-                        <td><a onclick="accountSelect(this)" id="account_name" data-value= "${accountsList.id}">${accountsList.name }</a></td>
-                        <td>${accountsList.ceo }</td>
-                        <td>${accountsList.phone }</td>
-                        <td>${accountsList.etc }</td>
+                <c:set var="materialsCount" value="${m_totalCount}"></c:set>
+                <c:if test="${m_totalCount eq 0}">
+                    <tr>
+                        <td colspan="6" class="text-center">등록된 정보가 없습니다.</td>
+                    </tr>
+                </c:if>
+
+                <c:forEach var="m" items="${materialsList}">
+                    <tr STYLE="text-align: center">
+                        <td><input type="checkbox" name="idx[]" id="idx[]" value="${m.id}"/></td>
+                        <td>${m.code}</td>
+                        <td>
+                            <a onclick="materialSelect(this)" id="m_name" data-value="${m.id}">
+                                    ${m.name}
+                            </a>
+                        </td>
+                        <td>${m.accountName}</td>
+                        <td>${m.width} x ${m.height}</td>
+                        <td>${m.etc}</td>
                     </tr>
                 </c:forEach>
-
                 </tbody>
             </table>
 
@@ -103,31 +118,15 @@
             </div>
         </div>
     </div>
-
-
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function () {
-        settingDatepicker(['start_date', 'end_date'], 'search_form');
-
-        var $search_form = $('form[name="search_form"]');
-        $search_form.on('click', function () {
-            $search_form.find('input[name="page"]').val(0);
-        });
-        moveToLastPage(${accountPaging.finalPageNo});
-    });
-
-    function pagination(page) {
-        $('form[name="search_form"]').find('input[name="page"]').val(page);
-        $('form[name="search_form"]').attr('action', 'accountListPopup.do');
-        $('form[name="search_form"]').submit();
-    }
-
-    function accountSelect(accountInfo) {
+    function materialSelect(m_info) {
         window.close();
-        window.opener.document.getElementById('account_name').value = $(accountInfo).text();//클릭한 거래처명 부모창의 거래처명에 저장
-        window.opener.document.getElementById('account_id').value = accountInfo.getAttribute('data-value');//클릭한 거래처명이 갖고있는 value(account_id) 부모창 히든태그에 저장
+        window.opener.document.getElementById('m_id').value = m_info.getAttribute('data-value');
+        window.opener.document.getElementById('m_code').value = document.getElementById('m_code');
+        window.opener.document.getElementById('m_name').value = $(m_info).text();
+
     }
 
 </script>

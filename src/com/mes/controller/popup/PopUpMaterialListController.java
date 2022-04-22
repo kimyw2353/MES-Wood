@@ -1,6 +1,7 @@
 package com.mes.controller.popup;
 
 import com.mes.dao.AccountsDao;
+import com.mes.dao.MaterialDao;
 import com.mes.dao.MaterialsOrdersDao;
 
 import javax.servlet.RequestDispatcher;
@@ -17,11 +18,11 @@ public class PopUpMaterialListController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        AccountsDao accountsDao = new AccountsDao();
-        MaterialsOrdersDao dao = new MaterialsOrdersDao();
+        MaterialsOrdersDao orderDao = new MaterialsOrdersDao();
+        MaterialDao materialDao = new MaterialDao();
 
-        req.setAttribute("m_orderList", dao.findAllMaterialsOrders());
-        req.setAttribute("m_totalCount", dao.MaterialordersCount());
+        req.setAttribute("materialsList", materialDao.findAllMaterials()); //자재정보
+        req.setAttribute("m_totalCount", orderDao.MaterialordersCount());
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/popup/materialListPopup.jsp");
         dispatcher.forward(req, resp);

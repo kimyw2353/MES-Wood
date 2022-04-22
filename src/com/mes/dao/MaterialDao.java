@@ -58,6 +58,7 @@ public class MaterialDao extends DBManager {
                 materials.setEtc(rs.getString("etc"));
 
                 materialsArrayList.add(materials);
+                System.out.println("materials : "+materials.toString());
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -73,8 +74,7 @@ public class MaterialDao extends DBManager {
     public boolean createMaterials(Materials materials){
 
         String sql = "INSERT INTO materials(code, name, account_id, height, width, etc, created_at) VALUES (?, ?, ?, ?, ?, ?, now())";
-
-        try{
+        try {
             conn = getConnection();
             ps = conn.prepareStatement(sql);
             

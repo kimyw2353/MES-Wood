@@ -117,7 +117,7 @@
 
     $(document).ready(function () {
         $("#history_back").on("click", function () {
-            $(location).attr("href", "/materials/Order.do");
+            $(location).attr("href", "/materials/OrderList.do");
         });
         $(function(){
             $("#datepicker").datepicker();

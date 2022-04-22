@@ -18,6 +18,7 @@ public class MaterialOrderListController extends HttpServlet {
         MaterialsOrdersDao materialsOrdersDao = new MaterialsOrdersDao();
 
         req.setAttribute("materialsOrdersList", materialsOrdersDao.findAllMaterialsOrders());
+        req.setAttribute("orderCount", materialsOrdersDao.ordersCount());
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/materialsOrders/materialOrderList.jsp");
         dispatcher.forward(req, resp);
