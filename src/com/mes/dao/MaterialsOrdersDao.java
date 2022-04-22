@@ -19,7 +19,7 @@ public class MaterialsOrdersDao extends DBManager {
 
     //자재발주 토탈 갯수
     public int MaterialordersCount(){
-        String sql = "SELECT COUNT(*) FROM materialsorder WHERE 1=1";
+        String sql = "SELECT COUNT(*) FROM materialsorders WHERE 1=1";
 
         try{
             conn = getConnection();
@@ -167,5 +167,27 @@ public class MaterialsOrdersDao extends DBManager {
 
         return dto;
 
+    }
+
+    //발주 관리 토탈
+    public int ordersCount() {
+        int totalCount;
+        String SQL = "SELECT COUNT(*) FROM materialsorders";
+        try{
+            conn = getConnection();
+            ps = conn.prepareStatement(SQL);
+            rs = ps.executeQuery();
+            if(rs.next()){
+                totalCount = rs.getInt(1);
+            }else {
+                totalCount = 0;
+            }
+            return totalCount;
+        }catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            closeConnectionAll(rs, ps, conn);
+        }
+        return 0;
     }
 }

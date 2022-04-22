@@ -188,7 +188,7 @@
 
     $(document).ready(function () {
         $("#history_back").on("click", function () {
-            $(location).attr("href", "/accounts/List.do");
+            $(location).attr("href", "/materials/OrderList.do");
         });
     });
 

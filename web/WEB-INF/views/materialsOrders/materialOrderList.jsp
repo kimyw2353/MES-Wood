@@ -59,11 +59,11 @@
             <div class="clearfix mg-top-10 mg-bottom-10">
                 <div class="f-left ft-bold mg-top-5">
                     Total :
-                    <c:if test="${materialsOrderCount eq null}">
+                    <c:if test="${orderCount eq null}">
                         0건
                     </c:if>
-                    <c:if test="${materialsOrderCount > 0}">
-                    ${materialsOrderCount}건
+                    <c:if test="${orderCount > 0}">
+                    ${orderCount}건
                     </c:if>
                 </div>
                 <div class="f-right text-right">
@@ -105,7 +105,7 @@
                 <tbody>
 
                 <c:set var="materialsOrderCount" value="${materialsOrderCount}"></c:set>
-                <c:if test="${materialsOrderCount eq 0}">
+                <c:if test="${orderCount eq 0}">
                     <tr>
                         <td colspan="6" class="text-center">등록된 정보가 없습니다.</td>
                     </tr>

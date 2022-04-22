@@ -78,7 +78,11 @@
                 <c:forEach var="accountsList" items="${accountsList}">
                     <tr style="text-align: center">
                         <%--<td>${accountsList.kind }</td>--%>
-                        <td><a onclick="accountSelect(this)" id="account_name" data-value= "${accountsList.id}">${accountsList.name }</a></td>
+                        <td>
+                            <a onclick="accountSelect(this)" id="account_name" data-value= "${accountsList.id}">
+                                    ${accountsList.name}
+                            </a>
+                        </td>
                         <td>${accountsList.ceo }</td>
                         <td>${accountsList.phone }</td>
                         <td>${accountsList.etc }</td>
@@ -103,8 +107,6 @@
             </div>
         </div>
     </div>
-
-
 </div>
 
 <script type="text/javascript">

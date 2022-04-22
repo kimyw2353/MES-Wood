@@ -28,7 +28,7 @@
             <tr>
                 <th>자재명</th>
                 <td>
-                    <input type="text" name="m_name" class="form-control xs" onclick="ListMaterialPopup();" readonly>
+                    <input type="text" id="m_name" name="m_name" class="form-control xs" onclick="ListMaterialPopup();" readonly>
                 </td>
             </tr>
             <tr>
