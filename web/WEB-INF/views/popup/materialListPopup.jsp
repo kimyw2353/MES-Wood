@@ -89,14 +89,14 @@
                 <c:forEach var="m" items="${materialsList}">
                     <tr STYLE="text-align: center">
                         <td><input type="checkbox" name="idx[]" id="idx[]" value="${m.id}"/></td>
-                        <td>${m.code}</td>
+                        <td id="code">${m.code}</td>
                         <td>
                             <a onclick="materialSelect(this)" id="m_name" data-value="${m.id}">
                                     ${m.name}
                             </a>
                         </td>
                         <td>${m.accountName}</td>
-                        <td>${m.width} x ${m.height}</td>
+                        <td id="size">${m.width} x ${m.height}</td>
                         <td>${m.etc}</td>
                     </tr>
                 </c:forEach>
@@ -122,10 +122,16 @@
 
 <script type="text/javascript">
     function materialSelect(m_info) {
+        const id = m_info.getAttribute('data-value');
+        const code = document.getElementById('code').innerText;
+        const name = $(m_info).text();
+        const size = document.getElementById('size').innerText;
+
         window.close();
-        window.opener.document.getElementById('m_id').value = m_info.getAttribute('data-value');
-        window.opener.document.getElementById('m_code').value = document.getElementById('m_code');
-        window.opener.document.getElementById('m_name').value = $(m_info).text();
+        window.opener.document.getElementById('m_id').value = id;
+        window.opener.document.getElementById('m_code').value = code;
+        window.opener.document.getElementById('m_name').value = name;
+        window.opener.document.getElementById('m_size').value = size;
 
     }
 

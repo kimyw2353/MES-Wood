@@ -22,7 +22,7 @@
             <tr>
                 <th>자재코드</th>
                 <td>
-                    <input type="text" name="m_code" class="form-control xs read-only" readonly>
+                    <input type="text" name="m_code" id="m_code" class="form-control xs read-only" readonly>
                 </td>
             </tr>
             <tr>
@@ -34,7 +34,7 @@
             <tr>
                 <th>규격</th>
                 <td>
-                    <input type="text" name="m_size" class="form-control xs read-only" readonly>
+                    <input type="text" name="m_size" id="m_size" class="form-control xs read-only" readonly>
                 </td>
             </tr>
             <tr>
